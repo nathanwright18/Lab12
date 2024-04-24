@@ -1,15 +1,24 @@
 
 
 class Television:
-    MIN_VOLUME = 0
-    MAX_VOLUME = 2
-    MIN_CHANNEL = 0
-    MAX_CHANNEL = 3
-    def __init__(self, status = False, muted = False, volume = MIN_VOLUME, channel = MIN_CHANNEL) -> None:
-        self.__status = status
-        self.__muted = muted
-        self.__volume = volume
-        self.__channel = channel
+    MIN_VOLUME: int = 0
+    MAX_VOLUME: int = 2
+    MIN_CHANNEL: int = 0
+    MAX_CHANNEL: int = 3
+    def __init__(self, status: bool = False, muted: bool = False, 
+                 volume: int = MIN_VOLUME, channel: int = MIN_CHANNEL) -> None:
+        """
+        Function initializing class.
+        :param status: Boolean state for whether or not the television is on.
+        :param muted: Boolean state for whether or not volume is on regardless of value of volume.
+        :param volume: Integer state for what magnitude sound is on.
+        :param channel: Determines what channel the television is turned to.
+        """
+        self.__status: bool = status
+        self.__muted: bool = muted
+        self.__volume: int = volume
+        self.__channel: int = channel
+        self.before_mute_volume: int = Television.MIN_VOLUME
     def power(self):
         if not self.__status:
             self.__status = True
